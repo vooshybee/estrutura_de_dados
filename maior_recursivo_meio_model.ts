@@ -7,7 +7,7 @@ function maior_n(a:number []):number{
     const metade_direita = a.slice(metade,a.length)
     const maior_esquerda = maior_n(metade_esquerda);
     const maior_direita = maior_n(metade_direita)
-    if(metade_esquerda > metade_direita){
+    if(maior_esquerda > maior_direita){
         return maior_esquerda;
     }
     else{
