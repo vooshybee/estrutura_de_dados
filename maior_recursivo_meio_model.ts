@@ -1,21 +1,17 @@
 function maior_n(a:number []):number{
     if(a.length==1){
-        console.log("Caso base atingido!");
-        console.log("Array:",a)
         return a[0];
     }
+    const metade = Math.floor(a.length/2);
+    const metade_esquerda = a.slice(0,metade);
+    const metade_direita = a.slice(metade,a.length)
+    const maior_esquerda = maior_n(metade_esquerda);
+    const maior_direita = maior_n(metade_direita)
+    if(metade_esquerda > metade_direita){
+        return maior_esquerda;
+    }
     else{
-        let metade:number = a.length/2;
-        console.log("Chamando de novo!")
-        console.log("Chamando maior_n(",a.slice(0,metade),");");
-        console.log("Chamando maior_n(",a.slice(metade),");");
-        let maior_restante = maior_n(a.slice(1,a.length))
-        if(a[0]>= maior_restante){
-            return a[0];
-        }
-        else{
-            return maior_restante;
-        }
+        return maior_direita;
     }
 }
 export{
